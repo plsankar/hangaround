@@ -1,0 +1,22 @@
+{
+  "name": "hangaround",
+  "version": "1.0.0",
+  "description": "hangaround chrome extension",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plsankar/hangaround.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "plsankar (https://github.com/plsankar)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plsankar/hangaround/issues"
+  },
+  "homepage": "https://github.com/plsankar/hangaround#readme"
+}

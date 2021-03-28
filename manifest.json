@@ -1,0 +1,6 @@
+{
+    "manifest_version": 3,
+    "name": "hangaround",
+    "description": "hangaround chrome extension",
+    "version": "1.0.0"
+}
