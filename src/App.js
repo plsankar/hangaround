@@ -1,9 +1,11 @@
 import React from 'react';
+import './App.scss';
+import Dashboard from './Dashboard/Dashboard';
 
 export default function App() {
     return (
-        <div>
-            <h1>hangaround</h1>
+        <div className="app-container">
+            <Dashboard />
         </div>
     );
 }

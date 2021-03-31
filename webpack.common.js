@@ -3,9 +3,9 @@ var path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: { app: './src/index.js' },
+    entry: { popup: './src/index.js' },
     output: {
-        filename: 'js/[name].bundle.js',
+        filename: '[name].[contenthash].bundle.js',
         path: path.resolve(__dirname, 'app'),
     },
     module: {
@@ -14,6 +14,10 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader',
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.css$/,
@@ -30,6 +34,7 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
+            filename: 'popup.html',
             title: 'hangaround',
             template: './src/index.html',
             inject: 'body',

@@ -4,21 +4,8 @@ window.onblur = () => (focused = false);
 
 const domain = new URL(window.location.href).hostname || '';
 
-// chrome.storage.onChanged.addListener(function (changes, namespace) {
-//     return;
-//     for (var key in changes) {
-//         var storageChange = changes[key];
-//         console.log(
-//             'Storage key "%s" in namespace "%s" changed. ' + 'Old value was "%s", new value is "%s".',
-//             key,
-//             namespace,
-//             JSON.stringify(storageChange.oldValue),
-//             JSON.stringify(storageChange.newValue)
-//         );
-//     }
-// });
-
-const increase = (byValue) => {
+function increase(byValue) {
+    if (!chrome || !chrome.storge || !chrome.storage.local) return;
     chrome.storage.local.get(['sites'], (result) => {
         const sites = result.sites || [];
         let newSites = [];
@@ -30,7 +17,7 @@ const increase = (byValue) => {
         }
         chrome.storage.local.set({ sites: newSites });
     });
-};
+}
 
 setInterval(() => {
     if (!focused) return;
