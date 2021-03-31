@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -20,11 +19,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(png|jp?eg|gif)$/,
@@ -50,26 +49,12 @@ module.exports = {
             fonts: [
                 {
                     family: 'Fira Sans',
-                    variants: [
-                        '500',
-                        '600',
-                        '700',
-                        '800',
-                        'regular',
-                        'italic',
-                        '500italic',
-                        '600italic',
-                        '700italic',
-                        '800italic',
-                    ],
+                    variants: ['500', 'regular', 'italic', '500italic'],
                 },
             ],
             filename: 'popup/fonts.css',
-            path: 'popup/fonts/',
+            path: 'fonts/',
             formats: ['woff2'],
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name]/[name].css',
         }),
     ],
 };
