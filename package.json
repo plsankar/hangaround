@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "hangaround chrome extension",
   "scripts": {
+    "build": "npm run webpack:build",
     "webpack:build": "set NODE_ENV=production&& webpack --config webpack.prod.js",
     "webpack:watch": "set NODE_ENV=development&& webpack --config webpack.dev.js --watch"
   },
