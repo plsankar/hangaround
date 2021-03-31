@@ -1,6 +1,26 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "hangaround",
     "description": "hangaround chrome extension",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "background": {
+        "scripts": [
+            "backend/background.js"
+        ],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "backend/contentscript.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
 }
