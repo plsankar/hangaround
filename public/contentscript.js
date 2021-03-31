@@ -1,11 +1,18 @@
-let focused = true;
-window.onfocus = () => (focused = true);
-window.onblur = () => (focused = false);
-
 const domain = new URL(window.location.href).hostname || '';
 
 function increase(byValue) {
-    if (!chrome || !chrome.storge || !chrome.storage.local) return;
+    console.log('increase');
+    const xchrome = {
+        storage: {
+            local: {
+                set: () => {},
+                get: () => {},
+            },
+        },
+    };
+    if (!xchrome || !xchrome.storage || !xchrome.storage.local) return;
+    console.log('Local available!');
+    // return;
     chrome.storage.local.get(['sites'], (result) => {
         const sites = result.sites || [];
         let newSites = [];
@@ -20,6 +27,7 @@ function increase(byValue) {
 }
 
 setInterval(() => {
-    if (!focused) return;
+    console.log('hidden', document.hidden);
+    if (document.hidden) return;
     increase(1);
-}, 5000);
+}, 1000);
