@@ -4,7 +4,13 @@
     "description": "hangaround chrome extension",
     "version": "1.0.0",
     "browser_action": {
-        "default_popup": "app/popup.html"
+        "default_popup": "popup/popup.html"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [
@@ -14,7 +20,7 @@
                 "https://*/*"
             ],
             "js": [
-                "backend/contentscript.js"
+                "contentscript.js"
             ]
         }
     ],

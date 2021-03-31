@@ -20,6 +20,6 @@ module.exports = {
             },
         },
     },
-    plugins: [...webpackCommon.plugins, new CleanPlugin(), new BundleAnalyzerPlugin()],
+    plugins: [...webpackCommon.plugins, new BundleAnalyzerPlugin()],
     devtool: false,
 };

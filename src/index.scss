@@ -1,0 +1,19 @@
+@import '../node_modules/normalize.css/normalize.css';
+
+body,
+html {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: #f5fbfd;
+    color: rgba($color: #000000, $alpha: 0.8);
+    font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-weight: 500;
+        font-size: 1rem+ 0.8 * (6 - $i);
+        margin: 0 0 0.8rem 0;
+    }
+}
