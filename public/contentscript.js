@@ -1,18 +1,7 @@
 const domain = new URL(window.location.href).hostname || '';
 
 function increase(byValue) {
-    console.log('increase');
-    const xchrome = {
-        storage: {
-            local: {
-                set: () => {},
-                get: () => {},
-            },
-        },
-    };
-    if (!xchrome || !xchrome.storage || !xchrome.storage.local) return;
-    console.log('Local available!');
-    // return;
+    if (!chrome || !chrome.storage || !chrome.storage.local) return;
     chrome.storage.local.get(['sites'], (result) => {
         const sites = result.sites || [];
         let newSites = [];
@@ -26,8 +15,7 @@ function increase(byValue) {
     });
 }
 
-setInterval(() => {
-    console.log('hidden', document.hidden);
+setInterval(function run() {
     if (document.hidden) return;
     increase(1);
 }, 1000);

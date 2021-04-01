@@ -10,6 +10,7 @@ export default function Dashboard() {
             setItems(result.sites.sort((a, b) => a.duration - b.duration).reverse());
         });
     };
+
     useEffect(() => {
         update();
         chrome.storage.local.onChanged.addListener(update);
