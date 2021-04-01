@@ -1,4 +1,4 @@
-const domain = new URL(window.location.href).hostname || '';
+const domain = new URL(window.location.href).hostname || null;
 
 function increase(byValue) {
     if (!chrome || !chrome.storage || !chrome.storage.local) return;
@@ -15,7 +15,7 @@ function increase(byValue) {
     });
 }
 
-setInterval(function run() {
-    if (document.hidden) return;
+setInterval(() => {
+    if (document.hidden || !domain) return;
     increase(1);
 }, 1000);
