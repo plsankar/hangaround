@@ -1,4 +1,3 @@
-const CleanPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpackCommon = require('./webpack.common');
 
@@ -20,6 +19,9 @@ module.exports = {
             },
         },
     },
-    plugins: [...webpackCommon.plugins, new BundleAnalyzerPlugin()],
+    plugins: [
+        ...webpackCommon.plugins,
+        // new BundleAnalyzerPlugin()
+    ],
     devtool: false,
 };

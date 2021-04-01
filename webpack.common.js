@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
@@ -44,17 +43,6 @@ module.exports = {
             title: 'hangaround',
             template: './src/index.html',
             inject: 'body',
-        }),
-        new GoogleFontsPlugin({
-            fonts: [
-                {
-                    family: 'Fira Sans',
-                    variants: ['500', 'regular', 'italic', '500italic'],
-                },
-            ],
-            filename: 'popup/fonts.css',
-            path: 'fonts/',
-            formats: ['woff2'],
         }),
     ],
 };

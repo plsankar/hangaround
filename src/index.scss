@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 body,
 html {
     font-size: 16px;
@@ -10,7 +12,7 @@ html {
 
 @for $i from 1 through 6 {
     h#{$i} {
-        font-weight: 500;
+        font-weight: 600;
         font-size: 1rem+ 0.8 * (6 - $i);
         margin: 0 0 0.8rem 0;
     }
