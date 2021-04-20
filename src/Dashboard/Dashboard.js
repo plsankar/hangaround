@@ -7,15 +7,16 @@ export default function Dashboard() {
     const update = () => {
         chrome.storage.local.get(['sites'], (result) => {
             if (!result || !result.sites) return;
-            setItems(result.sites.sort((a, b) => a.duration - b.duration).reverse());
+            const newSites = result.sites.sort((a, b) => a.duration - b.duration).reverse();
+            setItems(() => newSites);
         });
     };
 
     useEffect(() => {
         update();
-        chrome.storage.local.onChanged.addListener(update);
+        chrome.storage.onChanged.addListener(update);
         return () => {
-            chrome.storage.local.onChanged.removeListener(update);
+            chrome.storage.onChanged.removeListener(update);
         };
     }, []);
 
