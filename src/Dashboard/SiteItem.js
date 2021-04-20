@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './SiteItem.scss';
 
-export default function SiteItem({ site }) {
+function SiteItem({ site }) {
     const { domain, duration } = site;
     const time = () => {
         const hours = Math.floor(duration / 60 / 60)
@@ -18,3 +19,9 @@ export default function SiteItem({ site }) {
         </div>
     );
 }
+
+SiteItem.propTypes = {
+    site: PropTypes.object.isRequired,
+};
+
+export default SiteItem;
