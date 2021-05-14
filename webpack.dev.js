@@ -6,6 +6,7 @@ module.exports = {
     entry: webpackCommon.entry,
     output: webpackCommon.output,
     module: webpackCommon.module,
+    resolve: webpackCommon.resolve,
     plugins: [...webpackCommon.plugins],
     devtool: 'eval',
 };

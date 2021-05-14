@@ -4,10 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: { popup: './src/index.js' },
+    entry: { popup: './src/index.tsx' },
     output: {
         filename: 'popup/[name].[contenthash].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
     module: {
         rules: [
@@ -16,6 +19,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader',
             },
+            { test: /\.tsx?$/, loader: 'ts-loader' },
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
