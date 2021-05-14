@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import SiteItem from './SiteItem';
 import './Dashboard.scss';
 import { Site } from '../types';
 
 export default function Dashboard() {
-    const [items, setItems] = React.useState<Array<Site>>([]);
+    const [items, setItems] = useState<Array<Site>>([]);
     const update = () => {
         chrome.storage.local.get(['sites'], (result) => {
             if (!result || !result.sites) return;
@@ -14,7 +14,7 @@ export default function Dashboard() {
         });
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         update();
         chrome.storage.onChanged.addListener(update);
         return () => {
