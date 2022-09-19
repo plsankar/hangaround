@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
     entry: { popup: './src/index.tsx' },
@@ -38,6 +39,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new WebpackBar(),
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [{ from: 'public' }],
