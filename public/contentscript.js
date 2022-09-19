@@ -1,6 +1,6 @@
-const domain = new URL(window.location.href).hostname || null;
+const domain = new URL(window.location.href).hostname;
 
-function increase(byValue) {
+function timePassed(byValue) {
     if (!chrome || !chrome.storage || !chrome.storage.local) return;
     chrome.storage.local.get(['sites'], (result) => {
         const sites = result.sites || [];
@@ -16,6 +16,6 @@ function increase(byValue) {
 }
 
 setInterval(() => {
-    if (document.hidden || !domain) return;
-    increase(1);
+    if (document.hidden) return; // Dont track the time if the page is not showing
+    timePassed(1);
 }, 1000);
