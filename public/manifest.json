@@ -1,12 +1,14 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "hangaround",
-    "description": "hangaround chrome extension",
+    "short_name": "hangaround",
+    "description": "Know which website you are mostly hanging around!",
     "version": "1.0.0",
-    "browser_action": {
-        "default_popup": "popup/popup.html"
+    "author": "plsankar1996@gmail.com",
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_title": "hangaround"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [
         {
             "matches": [
@@ -18,6 +20,12 @@
             ]
         }
     ],
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
     "permissions": [
         "storage"
     ]

@@ -19,7 +19,9 @@ const SiteItem: FC<SiteItemProps> = ({ site }: SiteItemProps) => {
 
     return (
         <div className="siteitem">
-            <div className="siteitem__name">{domain}</div>
+            <div className="siteitem__name" title={domain}>
+                {domain}
+            </div>
             <div className="siteitem__time">{time()}</div>
         </div>
     );
